@@ -6,11 +6,11 @@ class PeerDepsExternalsPlugin {
   apply(compiler) {
     const peerDependencies = getPeerDependencies();
 
-    compiler.plugin('compile', (params) => {
+    compiler.plugin('compile', params => {
       params.normalModuleFactory.apply(
         new ExternalModuleFactoryPlugin(
           compiler.options.output.libraryTarget,
-          peerDependencies,
+          peerDependencies
         )
       );
     });
