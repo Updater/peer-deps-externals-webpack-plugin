@@ -13,9 +13,9 @@
   "main": "src/index.js",
   "license": "MIT",
   "peerDependencies": {
-    "webpack": "^2.0.0"
+    "webpack": ">=2.0.0"
   },
   "devDependencies": {
-    "webpack": "^2.0.0"
+    "webpack": ">=2.0.0"
   }
 }
