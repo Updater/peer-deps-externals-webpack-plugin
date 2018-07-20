@@ -2,6 +2,8 @@
   "name": "peer-deps-externals-webpack-plugin",
   "version": "1.0.3",
   "description": "Webpack plugin to automatically add a library's peerDependencies to its bundle's externals.",
+  "repository": "github:Updater/peer-deps-externals-webpack-plugin",
+  "bugs": "https://github.com/Updater/peer-deps-externals-webpack-plugin/issues",
   "keywords": [
     "webpack",
     "plugin",
