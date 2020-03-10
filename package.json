@@ -13,6 +13,7 @@
     "exclude"
   ],
   "main": "src/index.js",
+  "types": "types.d.ts",
   "license": "MIT",
   "peerDependencies": {
     "webpack": ">=2.0.0"
