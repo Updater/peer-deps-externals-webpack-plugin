@@ -7,7 +7,7 @@ class PeerDepsExternalsPlugin {
     const peerDependencies = getPeerDependencies();
 
     // webpack 5+
-    if (typeof compiler.options.output.library === "object") {
+    if (typeof compiler.options.output.library === 'object') {
       compiler.hooks.compile.tap('PeerDepsExternalsPlugin', ({ normalModuleFactory }) => {
         new ExternalModuleFactoryPlugin(
           compiler.options.output.library.type,
