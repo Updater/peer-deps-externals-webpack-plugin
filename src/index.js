@@ -6,24 +6,23 @@ class PeerDepsExternalsPlugin {
   apply(compiler) {
     const peerDependencies = getPeerDependencies();
 
+    // webpack 5+
+    if (typeof compiler.options.output.library === "object") {
+      compiler.hooks.compile.tap('PeerDepsExternalsPlugin', ({ normalModuleFactory }) => {
+        new ExternalModuleFactoryPlugin(
+          compiler.options.output.library.type,
+          peerDependencies
+        ).apply(normalModuleFactory);
+      });
+    }
     // webpack 4+
-    if (compiler.hooks) {
+    else {
       compiler.hooks.compile.tap('compile', params => {
         new ExternalModuleFactoryPlugin(
           compiler.options.output.libraryTarget,
           peerDependencies
         ).apply(params.normalModuleFactory);
       });
-    // webpack < 4, remove this in next major version
-    } else {
-      compiler.plugin('compile', params => {
-        params.normalModuleFactory.apply(
-          new ExternalModuleFactoryPlugin(
-            compiler.options.output.libraryTarget,
-            peerDependencies
-          )
-        );
-      });  
     }
   }
 }
