@@ -7,7 +7,7 @@ on:
 
 jobs:
   fossa:
-    uses: Updater/.github/.github/workflows/fossa.yaml@main
+    uses: Updater/.github-private/.github/workflows/fossa.yaml@main
     secrets:
       fossa-api-key: ${{ secrets.FOSSA_API_KEY }}
       token: ${{ secrets.GITHUB_TOKEN }}
